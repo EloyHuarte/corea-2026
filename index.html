@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Guía de Corea</title><meta name="robots" content="noindex">
+<title>Guía de Corea · versión pantalla</title><meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700;900&family=Work+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
@@ -587,10 +587,30 @@
 .redact{display:inline-block;background:#000;color:#000;border-radius:2px;min-width:4.5em;height:1em;vertical-align:-0.12em;user-select:none;-webkit-user-select:none;line-height:1;}
 .redact-img{display:block;background:#000;width:100%;max-width:300px;aspect-ratio:2/1;border-radius:6px;margin:6px 0;}
 </style>
+<style id="pantalla-css">
+@media (min-width:900px){html{zoom:var(--z,1)} .version-tag{position:static} .nav-chips{top:0;zoom:.85;padding:8px 14px}}
+#zbar{position:fixed;right:14px;bottom:14px;z-index:99999;display:none;align-items:center;gap:6px;font-family:Arial,sans-serif;zoom:calc(1/var(--z,1))}
+@media (min-width:900px){#zbar{display:flex}}
+#zbar button{min-width:56px;height:52px;border-radius:10px;border:1px solid #211D18;background:#FAF6EA;color:#211D18;font-size:22px;font-weight:700;cursor:pointer;opacity:.9;padding:0 10px}
+#zbar button:hover{opacity:1}
+#zbar span{min-width:70px;text-align:center;background:#FAF6EA;border:1px solid #211D18;border-radius:10px;height:52px;line-height:52px;font-size:18px;font-weight:700;color:#211D18;opacity:.9;cursor:pointer}
+</style>
+<script>(function(){var L=1,KEY="guiaPantallaNivel";
+try{var v=parseFloat(localStorage.getItem(KEY));if(v>=0.5&&v<=1.6)L=v}catch(e){}
+function base(){var w=window.innerWidth,h=window.innerHeight;var e=Math.min(w,h*16/9);return Math.min(2.6,Math.max(1,e/720*0.675))}
+function z(){var w=window.innerWidth;var lab=document.getElementById("zlab");
+if(w<900){document.documentElement.style.removeProperty("--z");return}
+document.documentElement.style.setProperty("--z",Math.max(0.8,base()*L).toFixed(3));if(lab)lab.textContent=Math.round(L*100)+"%"}
+window.__zf=function(d){L=Math.max(0.5,Math.min(1.6,Math.round((L+d)*100)/100));try{localStorage.setItem(KEY,L)}catch(e){}z()};
+window.__zr=function(){L=1;try{localStorage.setItem(KEY,L)}catch(e){}z()};
+z();window.addEventListener("resize",z);
+document.addEventListener("keydown",function(e){if(e.target&&/INPUT|TEXTAREA/.test(e.target.tagName))return;if(e.key==="+"||e.key==="=")__zf(0.1);else if(e.key==="-")__zf(-0.1);else if(e.key==="0")__zr()});
+document.addEventListener("DOMContentLoaded",function(){var b=document.createElement("div");b.id="zbar";
+b.innerHTML='<button type="button" onclick="__zf(-0.1)" aria-label="Letra más pequeña">A−</button><span id="zlab" title="Pulsa para restablecer" onclick="__zr()">100%</span><button type="button" onclick="__zf(0.1)" aria-label="Letra más grande">A+</button>';document.body.appendChild(b);z()})})();</script>
 </head>
 <body>
 
-<div class="version-tag">DISEÑO · V21 — Versión de muestra: datos personales ocultos (QR de vuelos visibles)</div>
+<div class="version-tag">Guía de Corea · versión pantalla · nombres, reservas y códigos ficticios</div>
 
 <header class="hero">
   <div class="hero-inner">
